@@ -1,0 +1,72 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+# beta_settings:
+#   cloud_sql_instances: fergmux:europe-west2:datastore
+
+# env_variables:
+#   CLOUD_SQL_CONNECTION_NAME: fergmux:europe-west2:datastore
+#   DB_USER: root
+#   DB_PASS: g7by4oFos86A6X
+#   DB_NAME: PROD_DATA
+
+# libraries:
+# - name: ssl
+#   version: latest
+
+# [START handlers]
+handlers:
+
+- url: /
+  static_files: src/index.html
+  upload: src/index.html
+
+# - url: /
+#   static_files: src/index.html
+#   upload: src/index.html
+
+- url: /src
+  static_dir: src
+
+- url: /
+  static_dir: src
+
+# - url: /db
+#   script: db.php
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: src/\1
+  upload: src/(.*\.html)
+  
+# - url: /.*(\.html)?
+#   static_files: src/
+#   upload: src/
+
+# - url: /src
+#   static_dir: src
+
+# - url: /(.*\.(gif|png|jpg))$
+#   static_files: static/\1
+#   upload: static/.*\.(gif|png|jpg)$
+
+# - url: /admin/.*
+#   script: admin.php
+#   login: admin
+
+
+# - url: /form
+#   script: main.app
+
+# - url: /submitted
+#   script: main.app
+
+# - url: /.*
+#   static_files: src/
+#   upload: src/
+
+- url: /.*
+  static_files: src/404-page.html
+  upload: src/404-page.html
+# [END handlers]

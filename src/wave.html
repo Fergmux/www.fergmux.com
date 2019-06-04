@@ -1,0 +1,73 @@
+<div id="back">
+      <a href="/index.html">< back</a>
+    </div>
+<div id='canvas' width="500" height="500"></div>
+<canvas id='c'></canvas>
+<style>
+#canvas
+{
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#canvas .ball
+{
+  background-color: #666;
+  display: inline-block;
+  float: left;
+  border-radius: 50%;
+  position: absolute;
+}</style>
+<script>
+	var wave_height = 150,      // Height of wave
+    wave_shift = 0.02,      // Alter how wave shifs
+    ball_count = 75,        // Number of balls in the wave
+    ball_size = 20,         // How big should each ball be
+    base_color = '#000', // Base color for ball before bightness is applied
+    period_factor = 2,      // Period Factor
+    count = 0;              // This just keeps track of where we are in the wave formation
+
+window.onload = function(){
+
+  var wave = document.getElementById('canvas');
+  
+  for(var i=0; i<ball_count; i++)
+  {
+    var ball = document.createElement('div');
+    ball.id = 'ball' + i;
+    ball.className = 'ball';
+    ball.style.width = ball_size + 'px';
+    ball.style.height = ball_size + 'px';
+    ball.style.backgroundColor = base_color;
+    ball.style.left = (i*ball_size) +'px';
+    ball.style.top = (( wave_height / 2 ) - (ball_size / 2)) +'px';
+    
+    wave.appendChild(ball);
+  }
+  
+	move();
+};
+
+
+function move() {
+  count++;
+  for(var i=0; i<ball_count; i++) {
+    var top = wave_height / 2 * ( 1 + Math.sin( ( count / period_factor * ( i / ( ball_size * ball_count ) + wave_shift ) ) % period_factor * Math.PI ) );
+    // console.log(top)
+    var ball = document.getElementById('ball' + i);
+    ball.style.top = top +'px';
+  }
+    
+  if(count == (( 2 * period_factor ) * ( ball_size * ball_count ))) {
+    count = 0;
+  }
+  
+  requestAnimationFrame(move);
+}
+
+
+
+
+
+
+</script>

@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<meta name="description" content="Fergmux's CV">
+		<meta name="author" content="Fergus Mullineux">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Fergmux</title>
+
+		<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+
+
+		<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<style type="text/css">
+			html {
+				background-color: #f3f3f3;
+			}
+			body {
+				font-family: 'Abel', sans-serif;
+				font-size: 400%;
+				color: #555;
+			}
+			a {
+				color: #555;
+				text-decoration: none;
+			}
+			ul {
+				list-style: none; /*these lines are to...  */
+				padding-left: 0;  /*remove list indentation*/
+				margin: 10px;
+			}
+			li {
+				overflow: hidden; /*hide sublists*/
+				text-decoration: none; /*remove bulletpoints*/
+			}
+			#main-list > li > span:hover {
+				text-decoration: underline;
+			}
+			.sub-list > li > a:hover {
+				text-decoration: underline;
+			}
+			.flex-container {
+				height: 100%;
+				position: relative;
+				text-align: center;
+			    display:flex;
+			    align-items: center; /* Vertical center alignment */
+			    justify-content: center; /* Horizontal center alignment */
+			}
+			#main-list > li {
+				margin: 5px;
+			}
+			.sub-list {
+				overflow: hidden;
+				font-size: 20%; /*size of the bulletpoints*/
+			}
+			.sub-list > li > a {
+				position: relative;
+				line-height: 200%;
+				font-size: 175%; /*size of the text*/
+				margin: 0px 5px; /*bulletpoint spacing from text */
+				top: 3px; /*bulletpoint vertical align*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex-container">
+			<div class="list-container">
+				<ul id="main-list">
+					<li>
+						<span><a href="/cv.html">CV</a></span>
+					</li>
+					<li>
+						<span id="expandable">PROJECTS</span>
+						<ul class="sub-list">
+							<li>&#9632;	<a href="/rain.html">Rain</a> &#9632;</li>
+							<li>&#9632;	<a href="/pong.html">Pong</a> &#9632;</li>
+							<li>&#9632;	<a href="/wave.html">Wave</a> &#9632;</li>
+						</ul>
+					</li>
+					<li>
+						<span id="expandable">CONTACT</span>
+						<ul class="sub-list">
+							<li>&#9632;	<a href"mailto:fergus@mullineux.com">fergus@mullineux.com</a> &#9632;</li>
+							<li>&#9632;	<a href"tel:+447543876593">+447543876593</a> &#9632;</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		
+	</body>
+	<script>
+		$( document ).ready(function() {
+			var speed = 700;
+			var lihi = $( "#main-list > li:eq(0)" ).outerHeight(true);
+
+			$( "#main-list" ).children("li").height(lihi);
+			
+			$( "#main-list > li > span#expandable" ).click(function() {
+				var exhi = $( this ).parent().outerHeight(true);
+				if ($( this ).hasClass( "open" )) {
+					$( this ).removeClass( "open" );
+					$( this ).parent().animate({height: lihi+"px"}, speed-100);
+				} else {
+					$( this ).addClass( "open" );
+					$( this ).parent().animate({height: (lihi+exhi+50)+"px"}, speed);
+				}
+			});
+		});
+	</script>
+</html>
+<!--  -->

@@ -1,0 +1,45 @@
+
+@font-face {
+  font-family: 'pong';
+  src: url(../resources/fonts/pong-score.ttf);
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #445;
+  font-family: arial;
+  color: #aaa;
+  font-size: 12px;
+  overflow: hidden;
+}
+#mycanvas {
+  background-color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#container {
+  position: relative;
+  text-align: center;
+  display:flex;
+  align-items: center;  /*Vertical center alignment*/ 
+  justify-content: center;  /*Horizontal center alignment */
+  height: 70vh;
+  width: 100vw;
+}
+#header {
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+}
+#back {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  z-index: 1;
+}
+#back > a {
+  color: white;
+}

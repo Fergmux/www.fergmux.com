@@ -1,0 +1,32 @@
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: src/index.html
+  upload: src/index.html
+
+- url: /db
+  script: db.php
+
+- url: /index(\.html)?
+  static_files: src/index.html
+  upload: src/index.html
+
+- url: /src
+  static_dir: src
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
+
+- url: /admin/.*
+  script: admin.php
+  login: admin
+
+- url: /.*
+  static_files: src/404-page.html
+  upload: src/404-page.html
+
+

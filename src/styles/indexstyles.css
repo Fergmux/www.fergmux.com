@@ -1,0 +1,9 @@
+.centre {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#cv-container {
+	background-color: red;
+}
