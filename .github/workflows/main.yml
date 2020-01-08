@@ -16,9 +16,9 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
     - uses: actions-hub/gcloud@master
-#      env:
-#        PROJECT_ID: fergmux
-#        APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-#        CLI: gsutil
-#      with:
-#        args: cp -r * gs://fergmux/src
+      env:
+        PROJECT_ID: fergmux
+        APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        CLI: gsutil
+      with:
+        args: cp -r * gs://www.fergmux.com
