@@ -70,3 +70,7 @@ handlers:
   static_files: src/404-page.html
   upload: src/404-page.html
 # [END handlers]
+
+- name: Google Cloud Platform (GCP) CLI - gcloud
+  uses: actions-hub/gcloud@272.0.0
+
