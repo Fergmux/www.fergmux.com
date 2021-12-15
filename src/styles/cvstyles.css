@@ -294,7 +294,7 @@ footer {
 
 @media print {
   #page1-break {
-    height: 90px;
+    height: 110px;
     width: 800px;
     float: left;
   }
